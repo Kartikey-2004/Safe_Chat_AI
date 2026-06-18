@@ -1,0 +1,27 @@
+uv run prisma generate \
+  --schema=.venv/lib/python3.14/site-packages/litellm/proxy/schema.prisma
+
+docker compose up -d
+
+docker compose down
+
+brew services start postgresql@18
+
+brew services stop postgresql@18
+
+litellm --config config.yaml
+litellm --config config.yaml --use_v2_migration_resolver
+litellm --config config.yaml --use_v2_migration_resolver --debug
+--use_v2_migration_resolver
+
+
+uv run streamlit run src/app.py 
+
+find .venv -name "schema.prisma" -path "*/litellm/*" -exec cp {} . \;
+
+uv run prisma generate
+
+python -m prisma version
+
+prisma generate
+

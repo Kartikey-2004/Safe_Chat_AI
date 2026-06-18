@@ -1,0 +1,15 @@
+
+services:
+  presidio-analyzer:
+    build:
+      context: ./presidio/presidio-analyzer
+    container_name: presidio-analyzer
+    ports:
+      - "3000:3000"
+
+  presidio-anonymizer:
+    build:
+      context: ./presidio/presidio-anonymizer
+    container_name: presidio-anonymizer
+    ports:
+      - "3001:3000"
