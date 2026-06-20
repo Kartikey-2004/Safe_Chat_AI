@@ -57,7 +57,8 @@ def call_with_fallbacks(model_chain, messages):
         except Exception as e:
             print(f"---- {model} failed ({type(e).__name__})")
             last_error = e
-    raise last_error
+    if last_error is not None:
+        raise last_error
 
 
 def calculate_cost(response):
