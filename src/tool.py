@@ -57,7 +57,7 @@ def call_with_fallbacks(model_chain, messages):
         except Exception as e:
             print(f"---- {model} failed ({type(e).__name__})")
             last_error = e
-    if last_error is not None:
+    if last_error:
         raise last_error
 
 
